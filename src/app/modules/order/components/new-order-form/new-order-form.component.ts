@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 //----------------------------------------------------------------------------
 // Imports Bootstrap
 //----------------------------------------------------------------------------
@@ -6,15 +6,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 //----------------------------------------------------------------------------
 // Imports Forms
 //----------------------------------------------------------------------------
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 //----------------------------------------------------------------------------
 // Imports Models and Services
 //----------------------------------------------------------------------------
-import { IOrder, IOrderRequest } from 'src/app/data/models/order.model';
-import { AlertService } from '../../../../core/services/alert.service';
 import { IProduct } from 'src/app/data/models/product.model';
 import { PaymentMode } from 'src/app/data/models/enums';
-import { method } from 'lodash';
 
 @Component({
   selector: 'app-new-order-form',

@@ -1,43 +1,96 @@
-# EzPraxis
+# Angular Payment Order Management
 
-This project was generated with Angular CLI, currently using version 16.2.5 and uses a .NET Core backend with Entity Framework and Duende Identity Server.
+Este proyecto es una aplicación desarrollada en Angular para gestionar órdenes de pago a través de una Web API que se conecta con dos proveedores externos de pago. La aplicación permite a los usuarios realizar, gestionar y monitorear órdenes de pago de manera eficiente.
 
-# Getting Started
+## Funcionalidades principales
 
-## Prerequisites
+- **Creación de órdenes de pago**: Los usuarios pueden generar órdenes de pago con los detalles necesarios.
+- **Gestión de órdenes**: Incluye la actualización del estado de las órdenes (Pendiente, Pagado, Cancelado, etc.).
+- **Integración con Web API**: La aplicación utiliza una Web API que se encarga de procesar las órdenes y conectarse con proveedores externos de pago.
+- **Soporte para múltiples proveedores**: Compatible con dos proveedores externos, permitiendo seleccionar el más adecuado según las necesidades del usuario.
+- **Historial de transacciones**: Visualización de todas las órdenes de pago realizadas.
 
-- Git: Download and install the latest stable version from `https://git-scm.com/downloads`.
-- Node.js: Download and install the latest stable version from `https://nodejs.org/en`.
-- Package Manager Console: Comes integrated with Visual Studio.
-- Angular CLI: Open a terminal and run `npm install -g @angular/cli` to install Angular CLI globally.
-- Visual Studio: Recommended IDE. Download it from `https://visualstudio.microsoft.com/`.
-- SQL Server Express: Download and install the latest stable version from `https://www.microsoft.com/en-us/sql-server/sql-server-downloads`.
-- NuGet Packages: Make sure to have installed all the necessary NuGet packages for SQL and Entity Framework. You can install them via the NuGet Package Manager Console in Visual Studio.
+## Requisitos previos
 
-## Installation
+Asegúrate de tener instalados los siguientes programas:
 
-- Make sure you have the credentials to access the AWS CodeCommit repository.
-- Clone the repository: `git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/EzPraxis`.
+- [Node.js](https://nodejs.org/) (versión 14 o superior)
+- [Angular CLI](https://angular.io/cli) (versión 12 o superior)
+- Un editor de código, como [Visual Studio Code](https://code.visualstudio.com/)
 
-## Set Up Database
+## Instalación
 
-- Open the project in Visual Studio.
-- Open the NuGet Package Manager Console in Visual Studio.
-- Run the following commands to update or create the database:
-  `Update-Database -context ApplicationDbContext`
-  `Update-Database -context ConfigurationDbContext`
-  `Update-Database -context PersistedGrantDbContext`
-- Or alternatively, you can run:
-  `dotnet ef database update --context ApplicationDbContext`
-  `dotnet ef database update --context ConfigurationDbContext`
-  `dotnet ef database update --context PersistedGrantDbContext`
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   ```
 
-## Set Up Angular
+2. Navega al directorio del proyecto:
+   ```bash
+   cd tu-repositorio
+   ```
 
-- Open a terminal and navigate to the `EzPraxis.Core/_ClientApp` folder.
-- Run `npm install` to install all the necessary packages.
+3. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-## Run the Application
+## Uso
 
-- Open the project in Visual Studio.
-- Run the application by pressing `F5`.
+1. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+
+2. Abre tu navegador y accede a:
+   ```
+   http://localhost:4200
+   ```
+
+3. Utiliza la interfaz para gestionar las órdenes de pago.
+
+## Configuración de la Web API
+
+Asegúrate de tener acceso a la Web API que se conecta con los proveedores externos de pago. Configura la URL base de la API en el archivo `environment.ts`:
+
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'https://tu-api-base-url.com/api'
+};
+```
+
+## Scripts disponibles
+
+- `ng serve`: Inicia el servidor de desarrollo.
+- `ng build`: Genera una versión optimizada para producción.
+- `ng test`: Ejecuta las pruebas unitarias.
+- `ng lint`: Analiza el código para detectar errores de estilo y calidad.
+
+
+
+## Contribución
+
+1. Haz un fork del repositorio.
+2. Crea una rama con la funcionalidad que deseas agregar:
+   ```bash
+   git checkout -b nueva-funcionalidad
+   ```
+3. Realiza tus cambios y crea un commit:
+   ```bash
+   git commit -m "Agrega nueva funcionalidad"
+   ```
+4. Haz un push a tu rama:
+   ```bash
+   git push origin nueva-funcionalidad
+   ```
+5. Crea un Pull Request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+
+---
+
+¡Gracias por contribuir y ser parte del desarrollo de esta aplicación!
+
