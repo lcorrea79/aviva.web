@@ -1,0 +1,34 @@
+// Accordions Style
+
+.accordion-body {
+  color: var(--vz-accordion-color) !important;
+}
+
+button.accordion-button.collapsed::after {
+  top: 18px !important;
+}
+
+// Custom Accordion
+
+.custom-accordion .accordion-button {
+  padding: 10px !important;
+}
+
+.custom-accordion .accordion-body {
+  padding: 0px !important;
+}
+
+.custom-accordion-2 .accordion-button {
+  display: block !important;
+}
+
+.profile-panels .accordion-item {
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  transform: translate3d(0, 0, 0);
+}
+
+.profile-panels .accordion-item:hover {
+  transform: scale(1.005);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

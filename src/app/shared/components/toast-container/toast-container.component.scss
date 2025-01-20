@@ -1,0 +1,31 @@
+:host {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+ngb-toast {
+  position: relative;
+  opacity: 0 !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out !important;
+  display: block !important;
+  box-shadow: 0 3px 6px -1px rgba(0, 0, 0, .12), 0 10px 36px -4px rgba(77, 96, 232, .3);
+}
+
+ngb-toast.show {
+  transform: translateX(0) !important;
+  /* Moves to its original position */
+  opacity: 0.95 !important;
+  /* Almost fully visible */
+}
+
+.btn-toast-close {
+  opacity: .4;
+  padding: 0 5px;
+  border: none;
+  background: 0 0;
+  color: #fff;
+}

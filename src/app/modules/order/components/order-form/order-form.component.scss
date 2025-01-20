@@ -1,0 +1,35 @@
+.button-wrap {
+    position: relative;
+}
+input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    top: 10px;
+    left: 8px;
+    font-size: 17px;
+    color: #b8b8b8;
+}
+.button {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #67b173;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+}
+
+.highlight-label {
+    font-size: 1.0rem;  /* Aumenta el tamaño de la fuente */
+    color: black;     /* Cambia el color de la etiqueta a un azul llamativo */
+    font-weight: bold;  /* Mantiene el texto en negrita */
+  }
+  
+  .value-text {
+    font-size: 1rem;    /* Tamaño de fuente más pequeño para el valor */
+    color: #555;
+    margin-left: 7px;          /* Color más neutral para el valor */
+  }

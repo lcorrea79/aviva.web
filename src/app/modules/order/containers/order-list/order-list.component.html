@@ -1,0 +1,68 @@
+<app-breadcrumbs title="Order List" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body border-bottom-dashed border-bottom">
+        <div class="row g-3 pb-1">
+          <div class="col-sm">
+           
+          </div>
+          <div class="col-sm">
+            <div class="d-flex justify-content-end">
+              <!-- Add Order Button -->
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-info" [routerLink]="['/products']" href="javascript:;">
+                  <i class="ri-add-line align-bottom me-1"></i>
+                  Add New Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+          <app-datatable [rows]="(rows$ | async) ?? []" [columns]="columns" [loadingIndicator]="loadingIndicator">            
+          </app-datatable>
+          <!-- Datatable Cell Templates -->
+          <ng-template #cellTemplate let-value="value">
+              <div class="d-flex align-items-center p-3">
+                  <span>{{ value }}</span>
+              </div>
+          </ng-template>
+          <!-- Datatable Cell Templates -->
+          <ng-template #statusTemplate let-value="value">
+              <div class="d-flex align-items-center p-3">
+                  <span>{{ orderStatusMap[value] }}</span>
+              </div>
+          </ng-template>
+         <!-- Number Template -->
+         <ng-template #numberTemplate let-value="value">
+          <div class="d-flex d-flex align-items-center p-1">
+              <span>{{ value | currency:'USD':'symbol':'1.2-2'}}</span>
+          </div>          
+      </ng-template>  
+       <!-- ControlData Template -->
+       <ng-template #controlDataTemplate let-row="row">
+        <div class="d-flex d-flex align-items-center p-1">
+            <span>{{ row.controlData?.apipago ? row.controlData.apipago : 'No data available' }}</span>
+        </div>          
+    </ng-template>      
+          <!-- Action Template -->
+          <ng-template #actionTemplate let-row="row">
+              <div class="p-2">
+                <a class="text-primary btn btn-icon" (click)="viewOrder(row)">
+                  <i class="ri-information-line fs-16" ngbTooltip="View Order Information" placement="right"></i>
+                </a>              
+                  <a *ngIf="row.status==1" class="text-primary btn btn-icon" (click)="payOrder(row)">
+                    <i class="ri-money-dollar-circle-line fs-16" ngbTooltip="Pay Order" placement="right"></i>
+                  </a>
+                  <a *ngIf="row.status==1" class="text-primary btn btn-icon" (click)="cancelOrder(row)">
+                    <i class="ri-delete-bin-5-line fs-16" ngbTooltip="Cancel Order" placement="right" style="color: red;"></i>
+                  </a>
+              </div>
+          </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<ng-select [items]="items" [virtualScroll]="true" [loading]="loading" [bindLabel]="bindLabel" [bindValue]="bindValue"
+  [placeholder]="placeholder" [typeahead]="input$" (change)="onChange($event)" (scroll)="onScroll($event)"
+  (scrollToEnd)="onScrollToEnd()" #select [formControl]="selectedControl" [compareWith]="compareFn"
+  [multiple]="multiple" [clearable]="!disabled" [notFoundText]="emptyMessage" [closeOnSelect]="closeOnSelect"
+  [ngClass]="{'is-invalid': selectedControl?.errors && (selectedControl?.dirty || selectedControl?.touched)}">
+
+  <ng-template *ngIf="isModifier" ng-label-tmp let-item="item">
+    {{ item[bindLabel].length > 2 ? (item[bindLabel] | slice:0:2) : item[bindLabel] }}
+  </ng-template>
+
+  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-search="searchTerm" let-index="index">
+    <div class="checkbox checkbox-info checkbox-circle">
+      <label>
+        &nbsp;{{ item[bindLabel] }}
+      </label>
+    </div>
+  </ng-template>
+
+</ng-select>
+
+<div *ngIf="selectedControl?.errors && (selectedControl?.dirty || selectedControl?.touched)" class="invalid-feedback">
+  <span>Please select a valid option</span>
+</div>

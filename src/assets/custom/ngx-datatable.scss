@@ -1,0 +1,147 @@
+// Datatable
+
+ngx-datatable {
+  width: auto !important;
+}
+
+label.datatable-checkbox {
+  margin-bottom: 0;
+  height: fit-content;
+}
+
+.ngx-datatable .datatable-body .datatable-scroll {
+  display: initial !important;
+}
+
+.datatable-header-cell,
+.datatable-body-cell {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+// Datatable Container
+
+.datatable-container {
+  overflow: auto !important;
+}
+
+
+// Datatable Header
+
+.datatable-header {
+  width: auto !important;
+  background-color: var(--vz-datatable-header-bg) !important;
+}
+
+.datatable-header-inner {
+  width: auto !important;
+}
+
+.datatable-header-cell {
+  border-bottom: 1px solid var(--vz-border-color) !important;
+}
+
+.datatable-header-cell-label {
+  font-size: medium;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+
+// Datatable Body
+
+.datatable-body {
+  width: auto !important;
+}
+
+.ngx-datatable .datatable-row-center {
+  width: 100% !important;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+  border-top: none !important;
+  width: 100% !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .ngx-datatable .datatable-row-center {
+    width: auto !important;
+  }
+
+  .ngx-datatable .datatable-body-row {
+    width: auto !important;
+  }
+}
+
+.datatable-body-row.datatable-row-even {
+  background: none !important;
+}
+
+.datatable-body-cell {
+  border-bottom: 1px solid var(--vz-border-color) !important;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.active {
+  background: none !important;
+  color: #fff;
+}
+
+.datatable-body-cell-label {
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+// Datatable Empty
+
+.ngx-datatable .datatable-body .empty-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: rgba(var(--vz-dark-rgb), 0.7) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  margin-left: 10rem !important;
+  margin-right: 10rem !important;
+  position: relative;
+  padding: 0.8rem 1rem;
+  background-color: var(--vz-datatable-header-bg);
+  border: 1px solid var(--vz-dark-border-subtle);
+  border-radius: 0.25rem;
+  font-size: 18px;
+}
+
+// Page Size
+
+.page-size {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.page-size input {
+  appearance: none;
+  background-color: var(--vz-input-bg);
+  background-clip: padding-box;
+  border: 1px solid var(--vz-input-border);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 16px;
+  color: var(--vz-datatable-footer-input-color) !important;
+}
+
+.page-size input:focus {
+  background-color: var(--vz-input-bg);
+  border-color: var(--vz-input-focus-border);
+  outline: 0;
+  box-shadow: 0 0 0 0 rgba(61, 120, 227, 0.25);
+}

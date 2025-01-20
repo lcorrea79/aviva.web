@@ -1,0 +1,80 @@
+test:frontend:
+  stage: test
+  image: node:20.1.0-alpine3.17
+  script:
+    - cd frontend
+    - npm ci --cache .npm --prefer-offline
+    - echo "Skipping tests for now" # TODO: Add tests
+    # - npm run test
+  cache:
+    - key:
+        files:
+          - frontend/package-lock.json
+      paths:
+        - frontend/.npm/
+        - frontend/.angular/
+      policy: pull-push
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+
+build:frontend:
+  stage: build
+  image: node:20.1.0-alpine3.17
+  needs:
+    - job: test:frontend
+      artifacts: false
+  script:
+    - cd frontend
+    - npm ci --cache .npm --prefer-offline
+    - cp $ENVIRONMENT_FILE src/environments/environment.prod.ts
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/dist/
+  cache:
+    - key:
+        files:
+          - frontend/package-lock.json
+      paths:
+        - frontend/.npm/
+        - frontend/.angular/
+      policy: pull
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always
+
+deploy:frontend:
+  stage: deploy
+  image: "${CI_REGISTRY}/${CI_PROJECT_PATH}/deploy:${CI_COMMIT_REF_SLUG}"
+  needs:
+    - job: build:frontend
+      artifacts: true
+    - job: build-deploy-image
+      artifacts: false
+      optional: true
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  before_script:
+    - >
+      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s"
+      $(aws sts assume-role-with-web-identity
+      --role-arn ${AWS_ROLE_ARN}
+      --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+      --web-identity-token ${GITLAB_OIDC_TOKEN}
+      --duration-seconds 3600
+      --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
+      --output text))
+    - aws sts get-caller-identity
+  script:
+    - cd frontend
+    - aws s3 sync --delete dist/ s3://$AWS_S3_CLOUDFRONT_BUCKET_NAME
+    - aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*" > .invalidation.json
+    - aws cloudfront wait invalidation-completed --id $(jq -r .Invalidation.Id .invalidation.json) --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID
+  resource_group: develop-frontend-deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always

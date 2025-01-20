@@ -1,0 +1,11 @@
+::ng-deep app-datatable .page-size {
+    display: none !important;
+  }
+
+  ::ng-deep app-datatable .pagination {
+    display: none !important;
+  }
+
+  .datatable-container > ngx-datatable + div {
+    display: none;
+  }

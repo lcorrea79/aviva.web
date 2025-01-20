@@ -1,0 +1,11 @@
+// Custom Tabs
+
+.custom-tab .nav-link {
+  background-color: transparent !important;
+  color: #3d78e3 !important;
+}
+
+.custom-tab .nav-link.active {
+  background-color: rgba(61, 120, 227, 0.1) !important;
+  color: #3d78e3 !important;
+}

@@ -1,0 +1,80 @@
+<app-breadcrumbs title="Product List" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body border-bottom-dashed border-bottom">
+        <div class="row g-3 pb-1">
+          <div class="col-sm">
+            <!-- Search -->
+            <div class="search-box">
+              <app-search-box (searchChange)="onSearchChanged($event)"
+                placeholder="Search for product..."></app-search-box>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="d-flex justify-content-end">
+              <!-- Add Product Button -->
+              <div class="d-flex gap-2 mr-2">
+                <button type="button" class="btn btn-info" (click)="newProduct()" href="javascript:;">
+                  <i class="ri-add-line align-bottom me-1"></i>
+                  Add New Product
+                </button>
+                <button type="button" class="btn btn-info" [disabled]="selectedProducts.length == 0"
+                  (click)="newOrder()" href="javascript:;">
+                  <i class="ri-add-line align-bottom me-1"></i>
+                  Add New Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <app-datatable [rows]="(rows$ | async) ?? []" [columns]="columns"
+          [loadingIndicator]="loadingIndicator"></app-datatable>
+        <ng-template #checkboxTemplate let-row="row">
+          <div class="d-flex justify-content-center">
+            <input type="checkbox" class="form-check-input" [disabled]="!row.status" [checked]="row.selected"
+              (change)="onRowSelected(row, $event)">
+          </div>
+        </ng-template>
+        <!-- Datatable Cell Templates -->
+        <ng-template #cellTemplate let-value="value">
+          <div class="d-flex align-items-center p-3">
+            <span>{{ value }}</span>
+          </div>
+        </ng-template>
+        <!-- Number Template -->
+        <ng-template #numberTemplate let-value="value">
+          <div class="d-flex d-flex align-items-center p-1">
+            <span>{{ value | currency:'USD':'symbol':'1.2-2' }}</span>
+          </div>
+          <!-- Status Template -->
+          <ng-template #statusTemplate let-row="row">
+            <div class="form-check form-switch form-switch-success d-flex align-items-center">
+              <input type="checkbox" class="form-check-input" id="isActive" name="isActive" [checked]="row.status"
+                (click)="updateProductStatus(row)">
+              <label for="isActive" class="form-check-label ms-1">
+                <span *ngIf="row.status" class="badge text-uppercase badge-soft-success">
+                  Available
+                </span>
+                <span *ngIf="!row.status" class="badge text-uppercase badge-soft-danger">
+                  Not available
+                </span>
+              </label>
+            </div>
+          </ng-template>
+        </ng-template>
+        <!-- Action Template -->
+        <ng-template #actionTemplate let-row="row">
+          <div class="p-2">
+            <a class="text-primary btn btn-icon" (click)="updateProduct(row)">
+              <i class="ri-pencil-line fs-16" ngbTooltip="Edit" placement="right"></i>
+            </a>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

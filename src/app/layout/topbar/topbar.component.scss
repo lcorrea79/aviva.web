@@ -1,0 +1,21 @@
+.dirty,
+#search-options:focus {
+  width: 100% !important;
+  transition: width 0.5s ease-in-out !important;
+  background-color: var(--vz-input-bg) !important;
+  border: 1px solid var(--vz-input-border) !important;
+  border-radius: 0.25rem !important;
+}
+
+#search-options {
+  width: 60%;
+  transition: width 0.5s ease-in-out, background-color 0.75s ease-in-out, border 0.8s ease-in-out, border-radius 0.8s ease-in-out;
+}
+
+#search-close-options {
+  cursor: pointer;
+}
+
+.search-table {
+  max-height: 320px !important;
+}

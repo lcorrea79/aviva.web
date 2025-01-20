@@ -1,0 +1,22 @@
+// Wizard
+
+.custom-nav.nav-wizard aw-wizard-navigation-bar.horizontal.large-empty-symbols .nav-link {
+  padding: 0px !important;
+}
+
+ul.steps-indicator li {
+  padding: 0px !important;
+}
+
+li div.step-indicator {
+  border: none !important;
+}
+
+li.current+li div.step-indicator {
+  background-color: rgba(61, 120, 227, 0.2) !important;
+}
+
+li.current+li div.step-indicator li.nav-item {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0 70%, 5% 50%, 0 30%);
+  background-color: #f3f6f9 !important;
+}

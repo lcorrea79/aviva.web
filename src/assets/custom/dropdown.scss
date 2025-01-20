@@ -1,0 +1,11 @@
+// Custom Dropdown
+
+.custom-dropdown.dropdown-toggle::after {
+  display: none !important;
+}
+
+.custom-dropdown {
+  inset: 0px auto auto 0px !important;
+  margin: 0px !important;
+  transform: translate(0px, 70px) !important;
+}

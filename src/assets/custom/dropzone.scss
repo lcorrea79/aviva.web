@@ -1,0 +1,30 @@
+// Dropzone
+
+.dropzone_sec .dz-preview .dz-image {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px !important;
+}
+
+.dropzone_sec .dz-preview {
+  width: calc(100% - 16px) !important;
+  min-height: 70px !important;
+}
+
+.dropzone_sec .dz-preview .dz-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.dropzone.dz-wrapper.dz-multiple.dz-started .dz-message {
+  display: none !important;
+}
+
+.dropzone_sec .dz-success-mark svg path {
+  fill: #67b173 !important;
+}
+
+.dropzone .dz-preview .dz-details .dz-size {
+  display: none !important;
+}

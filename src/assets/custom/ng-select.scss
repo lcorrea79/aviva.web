@@ -1,0 +1,49 @@
+// Ng Select
+
+.ng-select .ng-select-container {
+  border: 1px solid var(--vz-input-border) !important;
+  border-radius: 0.25rem;
+  height: 39px !important;
+}
+
+.ng-select .ng-select-container:hover {
+  box-shadow: none !important;
+}
+
+.ng-select.ng-select-focused .ng-select-container {
+  border-color: var(--vz-input-focus-border) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.ng-dropdown-panel {
+  z-index: 2000 !important;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.18);
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+  top: auto !important;
+}
+
+// Ng Select with Input Group when it's first child
+.input-group> :first-child .ng-select-container {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+// Ng Select with Input Group when it's last child
+.input-group> :not(:first-child) .ng-select-container {
+  margin-left: calc(1px * -1) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+// Ng Select with Input Group when it is not first or last child
+.input-group> :not(:first-child):not(:last-child) .ng-select-container {
+  margin-left: calc(1px * -1) !important;
+  border-radius: 0 !important;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  padding: 0.1rem !important;
+}

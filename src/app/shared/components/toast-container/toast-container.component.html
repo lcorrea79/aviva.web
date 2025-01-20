@@ -1,0 +1,23 @@
+<ngb-toast *ngFor="let toast of alertService.toasts" [class]="toast.classname" [autohide]="autohide"
+  [delay]="toast.delay" (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hidden)="remove(toast)"
+  [ngClass]="{ 'show': toast.show }" [ngStyle]="{ 'opacity': autohide ? '0.95' : '1' }">
+
+  <!-- Template -->
+  <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+    <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+  </ng-template>
+
+  <!-- Text -->
+  <ng-template #text>
+    <div class="d-flex justify-content-between">
+      <div>
+        {{ toast.textOrTpl }}
+      </div>
+      <!-- Close Button -->
+      <div class="d-flex align-items-start">
+        <button type="button" aria-label="Close" class="btn-toast-close" (click)="remove(toast)">✖</button>
+      </div>
+    </div>
+  </ng-template>
+
+</ngb-toast>

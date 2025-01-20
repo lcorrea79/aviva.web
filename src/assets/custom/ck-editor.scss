@@ -1,0 +1,13 @@
+// Custom CkEditor
+
+.custom-ckeditor .ck-file-dialog-button {
+  display: none;
+}
+
+.custom-ckeditor .ck.ck-dropdown.ck-heading-dropdown {
+  display: inline-block !important;
+}
+
+.custom-ckeditor .ck.ck-dropdown {
+  display: none;
+}

@@ -1,0 +1,10 @@
+<input id="searchInput"
+       #searchInput
+       type="search"
+       ngModel=""
+       (ngModelChange)="onValueChange($event)"
+       [attr.placeholder]="placeholder"
+       class="form-control search"
+       autocomplete="off"/>
+<i class="ri-search-line search-icon"></i>
+<i *ngIf="searchInput.value" class="ri-close-line clear-input" style="cursor: pointer;" (click)="clear()"></i>

@@ -1,0 +1,79 @@
+// Custom Calendar
+
+:root {
+  --fc-now-indicator-color: #8282ed !important;
+}
+
+.fc .fc-scrollgrid-section-header.fc-scrollgrid-section-sticky>* {
+  top: 70px;
+}
+
+.min-h.fc-timegrid-event {
+  min-height: min-content !important;
+}
+
+.fc-event-title {
+  font-size: 0.75rem !important;
+}
+
+// Calendar Settings
+
+.office-day {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--vz-border-width) var(--vz-border-style) var(--vz-border-color) !important;
+}
+
+.office-day span {
+  user-select: none;
+}
+
+.fc .fc-timegrid-slot {
+  height: 2.1em !important;
+}
+
+.fc-event {
+  margin: 0.5px 5px !important;
+  cursor: pointer !important;
+  text-align: start !important;
+}
+
+.fc-timegrid-axis {
+  background-color: var(--vz-light) !important;
+}
+
+.fc-theme-bootstrap5 a:not([href]) {
+  color: rgba(var(--vz-link-color-rgb), var(--vz-link-opacity, 1)) !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+  color: #fff !important;
+}
+
+.fc-event-main i {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.fc-timegrid-more-link {
+  background-color: var(--vz-light) !important;
+}
+
+.fc-v-event .fc-event-main {
+  color: rgba(var(--vz-link-color-rgb), var(--vz-link-opacity, 1)) !important;
+}
+
+.fc-daygrid-event {
+  margin-right: 2px;
+}
+
+.fc-event.fc-daygrid-event {
+  padding: 1px 5px !important;
+}

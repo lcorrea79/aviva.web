@@ -1,0 +1,106 @@
+@import './accordion.scss';
+@import './calendar.scss';
+@import './ck-editor.scss';
+@import './dropdown.scss';
+@import './dropzone.scss';
+@import './offcanvas.scss';
+@import './search-box.scss';
+@import './tabs.scss';
+@import './timeline.scss';
+@import './wizard.scss';
+@import './scrollbar.scss';
+@import './ng-select.scss';
+@import './ngx-datatable.scss';
+@import './modal.scss';
+@import './table.scss';
+
+
+//-----------------------Others-----------------------
+
+
+// Paragraph Style
+
+pre {
+  font-family: var(--vz-body-font-family) !important;
+  font-size: var(--vz-body-font-size) !important;
+  font-weight: var(--vz-body-font-weight) !important;
+  line-height: var(--vz-body-line-height) !important;
+  color: var(--vz-body-color) !important;
+  text-align: var(--vz-body-text-align) !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// Custom Overflow
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Cursor Pointer
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pac-container {
+  z-index: 1000000 !important;
+}
+
+.image_crop {
+  width: 100px;
+  height: 100px;
+  border: 0.5px;
+  border-style: dashed;
+}
+
+.image_crop img {
+  object-fit: none;
+  /* Do not scale the image */
+  object-position: center;
+  /* Center the image within the element */
+  width: 100%;
+  max-height: 250px;
+  margin-bottom: 1rem;
+}
+
+// Form labels
+.form-label-required::after {
+  content: '*';
+  color: rgba(var(--vz-danger-rgb));
+  margin-left: 5px;
+}
+
+// Link underlined
+.link-underline {
+  text-decoration: underline !important;
+}
+
+/* Hide grid lines */
+.gridster-item {
+  background-color: transparent !important; /* Set background color of gridster items to transparent */
+  border: none !important; /* Remove border */
+}
+
+.gridster {
+  background-color: transparent !important; /* Set background color of gridster container to transparent */
+  background-image: none !important; /* Remove background image */
+}
+
+gridster .gridster-row {
+  border-top: 10px solid gray !important;
+ // border-bottom: 1px solid red !important;
+ //background: gray !important;
+}
+
+gridster .gridster-column {
+  border-right: 10px solid gray !important;
+ // border-bottom: 1px solid red !important;
+ //background: gray;
+}
+
+
+.my-grid-item {
+  border: 2px solid red; /* Cambia el color del borde a rojo */
+}
