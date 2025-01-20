@@ -3,21 +3,16 @@
   <h4 class="modal-title">
     <i class="ri-hospital-line align-bottom me-1"></i> {{ title }}
   </h4>
-  <button 
-    type="button" 
-    class="btn-close" 
-    aria-label="Close" 
-    (click)="activeModal.dismiss()">
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()">
   </button>
 </div>
-
 <!-- Form -->
 <form novalidate>
   <!-- Modal Body -->
   <div class="modal-body">
     <div class="row g-3">
-       <!-- Order ID -->
-       <div class="col-lg-6">
+      <!-- Order ID -->
+      <div class="col-lg-6">
         <div>
           <label class="form-label highlight-label"><b>Order ID: </b></label>
           <span class="value-text">{{ order.orderId }}</span>
@@ -93,7 +88,7 @@
       <!-- Payment Mode -->
       <div class="col-lg-5">
         <div>
-          <label class="form-label highlight-label"><b>Payment Method:  </b></label>
+          <label class="form-label highlight-label"><b>Payment Method: </b></label>
           <span class="value-text">{{ order.method }}</span>
         </div>
       </div>
@@ -102,10 +97,7 @@
 
   <!-- Modal Footer -->
   <div class="modal-footer">
-    <button 
-      type="button" 
-      class="btn btn-danger" 
-      (click)="activeModal.dismiss()">
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss()">
       Close
     </button>
   </div>
